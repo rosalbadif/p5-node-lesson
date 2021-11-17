@@ -5,7 +5,8 @@ let express = require("express") //loaded express
 let app= express() //activated express
 
 //port thet we will use to 
-let port = 3000
+//let port = 3000
+let port = process.env.PORT || 3000 //run it on the heroku port OR on 3000
 let server = app.listen(port)
 
 console.log("Server is running on http://localhost:" + port)
