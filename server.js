@@ -21,6 +21,16 @@ let io = serverSocket(server) //already called the server in the line 11
 io.on("connection", newConnection) //when you see a new "CONNECTION" (standard name) run the newConnection function
 
 function newConnection(newSocket) { //passes a data file containing all the information about the connection called newSocket
-    console.log(newSocket.id) //gives back the code of every user accessing the server
+    console.log(newSocket.id) //gives back the id of every user accessing the server
+
+    //to send the information from the client to the server
+    newSocket.on("mouse", mouseMessage) 
+
+    function mouseMessage(dataReceived){
+        console.log(dataReceived)
+
+        //to send back the information from the server to all the other clients
+        newSocket.broadcast.emit("mouseBroadcast", dataReceived)
+    }
 }
 
