@@ -11,6 +11,7 @@ function newConnection() {
 function newBroadcast(data) {
   console.log(data) //to send back the information from the server to all the other clients
   fill("orange")
+  noStroke()
   circle(data.x, data.y, 10) //to draw the position of the other clients
 }
 
@@ -22,6 +23,7 @@ function setup() {
 function draw() {
   
   fill("blue")
+  noStroke()
   circle(mouseX, mouseY, 10)
 
 }
